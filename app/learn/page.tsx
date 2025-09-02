@@ -1120,7 +1120,7 @@ export default function FinancialEducationPage() {
             </div>
             
             <p className="text-sm dark:text-gray-300 text-gray-600 mb-6">
-              Share "{sharePopup.item.title}" with others
+              Share &quot;{sharePopup.item.title}&quot; with others
             </p>
 
             <div className="grid grid-cols-4 gap-4">

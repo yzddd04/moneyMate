@@ -29,7 +29,7 @@ export default function Footer() {
               <span className="text-lg sm:text-xl font-bold dark:text-white text-gray-900">MoneyMate</span>
             </div>
             <p className="dark:text-gray-400 text-gray-600 text-xs sm:text-sm leading-relaxed mb-4 sm:mb-6">
-              "Educate, Calculate, with MoneyMate." Your comprehensive financial education platform for building lasting wealth.
+              &quot;Educate, Calculate, with MoneyMate.&quot; Your comprehensive financial education platform for building lasting wealth.
             </p>
             
             {/* Social Links */}

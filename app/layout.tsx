@@ -23,8 +23,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
+    <html lang="en" className="dark" suppressHydrationWarning>
+      <body className={inter.className} suppressHydrationWarning>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(()=>{try{var t=localStorage.getItem('theme')||'dark';var d=document.documentElement;d.classList.toggle('dark',t==='dark');d.classList.toggle('light',t==='light');}catch(e){document.documentElement.classList.add('dark')}})();`,
+          }}
+        />
         <ThemeProvider>
           {children}
         </ThemeProvider>

@@ -1,78 +1,148 @@
-# MoneyMate - Financial Education Platform
+# MoneyMate — Financial Education Platform
 
-## 🚀 Next.js 15 Upgrade Complete!
+MoneyMate adalah platform edukasi finansial modern berbasis Next.js yang membantu pengguna belajar, menghitung, merencanakan, dan berinvestasi dengan percaya diri melalui konten interaktif dan alat simulasi.
 
-Proyek ini telah berhasil diupgrade ke **Next.js 15.5.2** dengan optimasi performa yang signifikan.
+## Isi Produk
 
-### ✨ Fitur Baru Next.js 15
+- MateLearn
+  - Konten video & artikel, carousel hero, pencarian, filter, bookmark, dan progress tracking per materi
+  - Modal konten dilengkapi embed YouTube (responsive 16:9) untuk materi berformat video
+  - Setiap artikel dapat menampilkan ringkasan dan “Full Article” (±500 kata)
 
-- **Turbopack** - Bundler yang lebih cepat untuk development
-- **Improved Performance** - Kompilasi dan hot reload yang lebih cepat
-- **Better TypeScript Support** - Type checking yang lebih akurat
-- **Enhanced Static Export** - Optimasi untuk static site generation
+- MateVest
+  - Investment Calculator: perhitungan target/investasi (format angka konsisten, locale disesuaikan)
+  - Investment Portfolio: analisis nilai masa depan dan hasil investasi
+  - Investment Personality: kuisioner profil risiko tanpa indikator persen di header pertanyaan
 
-### 🛠️ Scripts yang Tersedia
+## Demo Alur Utama
 
-```bash
-# Development
-npm run dev          # Development server biasa
-npm run dev:turbo    # Development dengan Turbopack (lebih cepat)
+1) Landing (`/`)
+   - Hero dengan tagline “Educate, Calculate, with MoneyMate”, CTA ke MateLearn
+   - Trust (ticker/market cards dengan locale angka konsisten)
+   - Features (kartu ringkas ke MateLearn dan MateVest)
+   - Solutions (showcase dua pilar produk)
+   - FAQ + Footer
 
-# Build & Export
-npm run build        # Build untuk production
-npm run build:analyze # Build dengan bundle analyzer
-npm run export       # Static export
+2) MateLearn (`/learn`)
+   - Hero carousel (auto-advance) + filter dan pencarian
+   - Grid konten (video/artikel), bookmark, dan progress per item
+   - Modal Detail
+     - Jika type video → embed YouTube responsif
+     - Jika artikel → menampilkan ringkasan dan Full Article (±500 kata)
 
-# Utilities
-npm run lint         # ESLint check
-npm run type-check   # TypeScript type checking
+3) MateVest (`/invest`)
+   - Tiga tools: Calculator, Portfolio, Personality
+   - Calculator dan Portfolio menampilkan angka dengan locale konsisten
+   - Personality: progres pertanyaan, tanpa persen di heading, hasil profil risiko + rekomendasi
+
+## Teknologi Utama
+
+- Next.js 15.5.2 (App Router)
+- React 18
+- TypeScript
+- Tailwind CSS (custom breakpoints: `xs: 390px`, `tablet: 820px`, `2xl: 1440px`)
+- lucide-react (ikon)
+
+## UX/Theme
+
+- Mode gelap adalah default. Tema disimpan di `localStorage` dan diterapkan segera saat load untuk mencegah flash putih.
+- Implementasi: `app/layout.tsx` menyisipkan inline script yang mengeset class `dark/light` sebelum hydration, dan `lib/theme-context.tsx` menjaga sinkronisasi state + DOM class.
+
+Rincian Theme Architecture:
+- Default: `dark`
+- State: React Context (`ThemeProvider`) dengan `toggleTheme()`
+- Penyimpanan: `localStorage.theme`
+- Early-apply: inline IIFE di `app/layout.tsx` mencegah FOUC (flash putih)
+
+## Pencegahan Hydration Mismatch
+
+- Format angka yang dirender server dan client diseragamkan, misalnya:
+  - `toLocaleString('en-US')` pada komponen pasar/stock dan chart tooltip
+  - Hal ini mencegah perbedaan seperti `856,59` vs `856.59`
+
+## Struktur Proyek (ringkas)
+
+```
+app/
+  page.tsx                # Landing: Hero, Trust, Features, Solutions, FAQ, Footer
+  layout.tsx              # Global layout, theme bootstrap script
+  learn/                  # Halaman MateLearn (carousel, grid, modal konten)
+  invest/                 # Halaman MateVest (hub)
+    calculator/
+    personality/
+    portofolio/
+components/
+  Hero.tsx, Header.tsx, Footer.tsx, Trust.tsx, Features.tsx, Solutions.tsx, FAQ.tsx
+  ui/* (komponen utilitas Tailwind/shadcn)
+lib/
+  theme-context.tsx       # Context & toggler tema
+tailwind.config.ts        # Breakpoints & theme tokens
 ```
 
-### ⚡ Optimasi yang Diterapkan
+## Standar Kode & Aksesibilitas
 
-1. **SWC Minification** - Minifikasi yang lebih cepat
-2. **CSS Optimization** - Optimasi CSS untuk performa
-3. **Webpack Optimizations** - Konfigurasi webpack yang dioptimasi
-4. **TypeScript Optimizations** - Type checking yang lebih efisien
-5. **Static Export Optimizations** - Optimasi untuk static site
+- Penamaan variabel/komponen deskriptif, gaya fungsional, dan penghindaran nested yang dalam
+- Kontras warna gelap/terang sudah diperhatikan; ikon menggunakan label aria bila relevan
+- Navigasi link jelas, tombol mempunyai state hover/focus
 
-### 🔧 Konfigurasi
-
-- **Next.js Config**: Dioptimasi untuk Next.js 15
-- **TypeScript Config**: Menggunakan fitur terbaru
-- **Webpack Config**: Optimasi untuk development dan production
-
-### 📦 Dependencies
-
-- **Next.js**: 15.5.2
-- **React**: 18.3.1
-- **React DOM**: 18.3.1
-- **TypeScript**: 5.2.2
-
-### 🚀 Cara Menjalankan
+## Menjalankan Secara Lokal
 
 ```bash
-# Install dependencies
+# 1) Instal dependency
 npm install
 
-# Development dengan Turbopack (recommended)
-npm run dev:turbo
+# 2) Jalankan dev server (pilih salah satu)
+npm run dev          # Next.js dev server
+npm run dev:turbo    # Dev dengan Turbopack (lebih cepat)
 
-# Development biasa
-npm run dev
+# 3) Build/Export
+npm run build        # Production build
+npm run export       # Static export (opsional sesuai kebutuhan deploy)
 
-# Build untuk production
-npm run build
+# 4) Utilitas
+npm run lint         # ESLint
+npm run type-check   # TypeScript checking
 ```
 
-### 📈 Performa
+## Build & Deploy
 
-Dengan upgrade ke Next.js 15, Anda akan merasakan:
-- **30-50% lebih cepat** dalam kompilasi development
-- **Hot reload yang lebih responsif**
-- **Bundle size yang lebih kecil**
-- **TypeScript checking yang lebih cepat**
+- Production build: `npm run build`
+- Static export (opsional): `npm run export` → output ke `out/`
+- Vercel/Node hosting: gunakan build Next.js standar; inline theme script aman diproduksi
 
----
+## Konfigurasi & Variabel Lingkungan
 
-**Note**: Proyek ini menggunakan static export mode untuk deployment yang optimal.
+Untuk saat ini tidak ada variabel environment yang wajib. Jika kelak ditambahkan (mis. API analytics), letakkan contoh pada `.env.example` dan dokumentasikan di sini.
+
+## Konvensi & Catatan Implementasi
+
+- Responsif untuk tiga target ukuran: 390×844 (mobile), 820×1180 (tablet), 1440×1024 (desktop)
+- Warna dan gaya konsisten menggunakan utilitas Tailwind; aksen biru pada MateLearn & MateVest
+- Beberapa dekorasi (bulatan) pada section tertentu dihapus untuk visual yang lebih bersih
+- Ikon hero menggunakan ikon uang (`DollarSign`) agar sesuai identitas MoneyMate
+
+## Roadmap Singkat
+
+- Akun pengguna + sinkronisasi progress ke backend
+- Export/Share rekomendasi portofolio (PDF/PNG)
+- Integrasi analytics (privacy-friendly)
+- Tema sistem (mengikuti prefers-color-scheme jika user belum memilih)
+
+## Troubleshooting
+
+- Tema kembali putih saat refresh
+  - Pastikan inline theme bootstrap di `app/layout.tsx` tidak dihapus, dan `localStorage.theme` ter-set
+
+- Hydration mismatch angka
+  - Pastikan semua `toLocaleString()` diberi locale tetap, misal `'en-US'` atau `'id-ID'` sesuai konteks
+
+## Kontribusi
+
+1) Fork & clone repo
+2) Buat branch fitur: `feat/nama-fitur`
+3) Jalankan `npm run lint && npm run type-check` sebelum commit
+4) Buat PR dengan deskripsi yang jelas dan screenshot bila UI berubah
+
+## Lisensi
+
+Proyek ini untuk tujuan edukasi/demonstrasi internal. Sesuaikan lisensi sesuai kebutuhan distribusi Anda.
