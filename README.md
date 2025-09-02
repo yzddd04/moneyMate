@@ -5,9 +5,9 @@ MoneyMate adalah platform edukasi finansial modern berbasis Next.js yang membant
 
 | Halaman | Pratinjau |
 |---|---|
-| Landing | <img width="1920" height="1500" alt="image" src="https://github.com/user-attachments/assets/2965a142-df75-4ecc-a801-e257c0b854e8" /> |
-| MateLearn | <img width="1920" height="1500" alt="image" src="https://github.com/user-attachments/assets/e310d178-b166-48f5-b53c-240c3fb2a320" /> |
-| MateVest | <img width="1920" height="1500" alt="image" src="https://github.com/user-attachments/assets/eb3fc99f-e83f-4996-9695-6c2f2d2f8a1a" /> |
+| Landing | <img width="1355" height="796" alt="image" src="https://github.com/user-attachments/assets/650ad4f0-4674-4cbc-9b24-4d9bd7665332" /> |
+| MateLearn | <img width="1358" height="792" alt="image" src="https://github.com/user-attachments/assets/d518bb78-fff5-40e0-b748-ee1224204c68" /> |
+| MateVest | <img width="1904" height="953" alt="image" src="https://github.com/user-attachments/assets/9ff3b6e8-b239-42c9-8891-35f28de819e3" /> |
 
 
 
