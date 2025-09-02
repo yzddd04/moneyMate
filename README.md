@@ -1,21 +1,15 @@
 # MoneyMate — Financial Education Platform
+MoneyMate adalah platform edukasi finansial modern berbasis Next.js yang membantu pengguna belajar, menghitung, merencanakan, dan berinvestasi dengan percaya diri melalui konten interaktif dan alat simulasi.
 
 > Dokumentasi gambar (letakkan file di `public/screenshots/` atau `docs/screenshots/`).
 
 | Halaman | Pratinjau |
 |---|---|
-| Landing | ![Landing](public/screenshots/landing.png) |
-| MateLearn | ![MateLearn](public/screenshots/matelearn.png) |
-| MateVest | ![MateVest](public/screenshots/matevest.png) |
-
-Jika path berbeda, sesuaikan tautan di atas. Anda juga bisa menggunakan format HTML agar mengatur lebar gambar:
-
-```html
-<img src="public/screenshots/landing.png" alt="Landing" width="900" />
-```
+| Landing |  |
+| MateLearn |  |
+| MateVest |  |
 
 
-MoneyMate adalah platform edukasi finansial modern berbasis Next.js yang membantu pengguna belajar, menghitung, merencanakan, dan berinvestasi dengan percaya diri melalui konten interaktif dan alat simulasi.
 
 ## Isi Produk
 
