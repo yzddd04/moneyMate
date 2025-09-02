@@ -6,9 +6,9 @@ Links: https://github.com/yzddd04/moneyMate • https://money-mate.vercel.app
 
 | Halaman | Pratinjau |
 |---|---|
-| Landing |  |
-| MateLearn |  |
-| MateVest |  |
+| Home | <img width="1355" height="796" alt="image" src="https://github.com/user-attachments/assets/650ad4f0-4674-4cbc-9b24-4d9bd7665332" /> |
+| MateLearn | <img width="1358" height="792" alt="image" src="https://github.com/user-attachments/assets/d518bb78-fff5-40e0-b748-ee1224204c68" /> |
+| MateVest | <img width="1904" height="953" alt="image" src="https://github.com/user-attachments/assets/9ff3b6e8-b239-42c9-8891-35f28de819e3" /> |
 
 
 
